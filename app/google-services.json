@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "586277501804",
+    "project_id": "smart-ufopa-560f9",
+    "storage_bucket": "smart-ufopa-560f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586277501804:android:a8aeb191bc88ec477e9149",
+        "android_client_info": {
+          "package_name": "com.example.smartufopa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586277501804-08komp84eqv5qvbi2559ka8ravqq95mm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcd3KI-l7sSQZpvSmB2xKrcPgkMLgtj5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586277501804-08komp84eqv5qvbi2559ka8ravqq95mm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activitys.AcionamentoActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#46C146"
+            android:elevation="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextColor="@color/white">
+
+            <ImageView
+                android:id="@+id/ic_voltar2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_back_2"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/toolbar" />
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <ImageButton
+            android:id="@+id/btnSeguran"
+            android:layout_width="381dp"
+            android:layout_height="135dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/botao_selecionado_redondo"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSegura" />
+
+
+        <ImageButton
+            android:id="@+id/btnOcorrencia"
+            android:layout_width="81dp"
+            android:layout_height="81dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/fundo_botaoimg1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_ocorrencia"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSeguran"
+            app:layout_constraintStart_toStartOf="@+id/btnSeguran"
+            app:layout_constraintTop_toTopOf="@+id/btnSeguran" />
+
+
+        <ImageButton
+            android:id="@+id/btnSegura"
+            android:layout_width="381dp"
+            android:layout_height="135dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/botao_selecionado_redondo"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/btnSeguran"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <ImageButton
+            android:id="@+id/btnDenuncia"
+            android:layout_width="81dp"
+            android:layout_height="81dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/fundo_botaoimg1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_denuncia"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSegura"
+            app:layout_constraintStart_toStartOf="@+id/btnSegura"
+            app:layout_constraintTop_toTopOf="@+id/btnSegura" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="371dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/fundo_botaoimg"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSeguran" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Atenção!"
+            android:textColor="#FF0000"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView15"
+            app:layout_constraintStart_toStartOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="@+id/imageButton"
+            app:layout_constraintVertical_bias="0.56" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView14"
+            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toTopOf="@+id/textView14"
+            app:srcCompat="@drawable/ic_alerta" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="355dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="Atenção!\nA Polícia Civil adverte que falsidade ideológica e falsa comunicação de crime também configuram crimes, conforme previsão no artigo 299 e 340, respectivamente, do Código Penal Brasileiro.                               "
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton"
+            app:layout_constraintStart_toStartOf="@+id/imageButton" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:srcCompat="@drawable/img" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/open_sans_light"
+            android:text="Registre"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Denuncia"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/btnSegura"
+            app:layout_constraintHorizontal_bias="0.105"
+            app:layout_constraintStart_toEndOf="@+id/btnDenuncia"
+            app:layout_constraintTop_toTopOf="@+id/btnSegura" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Ocorrência"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.097"
+            app:layout_constraintStart_toEndOf="@+id/btnOcorrencia"
+            app:layout_constraintTop_toTopOf="@+id/btnSeguran" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="244dp"
+            android:layout_height="wrap_content"
+            android:text="Acidentes · Ameaças · Crimes · \nFurtos · Homicídios · Latrocínios · Roubos · Violência · Outros"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSegura"
+            app:layout_constraintEnd_toEndOf="@+id/btnSegura"
+            app:layout_constraintHorizontal_bias="0.437"
+            app:layout_constraintStart_toEndOf="@+id/btnDenuncia"
+            app:layout_constraintTop_toBottomOf="@+id/textView22"
+            app:layout_constraintVertical_bias="0.156" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="244dp"
+            android:layout_height="wrap_content"
+            android:text="Acidentes · Ameaças · Crimes · \nFurtos · Homicídios · Latrocínios · Roubos · Violência · Outros"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSeguran"
+            app:layout_constraintEnd_toEndOf="@+id/btnSeguran"
+            app:layout_constraintHorizontal_bias="0.437"
+            app:layout_constraintStart_toEndOf="@+id/btnOcorrencia"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

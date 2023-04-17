@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Smart UFOPA</string>
+    <string name="name">Nome</string>
+    <string name="hint_email">Digite seu email</string>
+    <string name="hint_recuperar_email">Digite seu email</string>
+    <string name="hint_endereco">Endereço</string>
+    <string name="hint_senha">Digite sua senha</string>
+    <string name="hint_telefone">Telefone</string>
+    <string name="txt_button_entrar">Entrar</string>
+    <string name="txt_button_cadastrar">Cadastrar</string>
+    <string name="txt_tela_cadastro">Clique Aqui!!</string>
+    <string name="s_o_s">S.O.S</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+
+    <string-array name="itdem_list">
+        <item>Acidente de Trânsito sem vítimas</item>
+        <item>Acidente de Trânsito com vítimas</item>
+        <item>Ameaça</item>
+        <item>Crimes agrários</item>
+        <item>Crimes de ódio</item>
+        <item>Crimes crimes contra o consumidor</item>
+        <item>Desaparecimento de Pessoas</item>
+        <item>Estupro</item>
+        <item>Furto de Documentos,Celulares e/ou Objetos</item>
+        <item>Furto de Fios e/ou Cabos em vias Públicas</item>
+        <item>Perdas de Documentos,Celulares e/ou Objetos</item>
+        <item>Roubo de Documentos,Celulares e/ou Objetos</item>
+        <item>Roubo ou Furto de Veiculos</item>
+        <item>Injúria, Calúnia ou Diflamação</item>
+        <item>Latrocínio(Roubo seguido de morte)</item>
+        <item>Assassinato</item>
+        <item>Óbito por causa Natural</item>
+        <item>Homicidio</item>
+        <item>Violência domestica</item>
+        <item>Violencia contra animais</item>
+        <item>outro</item>
+    </string-array>
+
+</resources>

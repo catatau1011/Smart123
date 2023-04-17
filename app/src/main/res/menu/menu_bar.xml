@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/seguranca"
+            android:title="Segurança"/>
+
+        <item
+            android:id="@+id/saude"
+            android:title="Saude"/>
+
+        <item
+            android:id="@+id/educacao"
+            android:title="Educação"/>
+
+        <item
+            android:id="@+id/mAmbiente"
+            android:title="Meio Ambiente"/>
+
+        <item
+            android:id="@+id/cultura"
+            android:title="Cultura"/>
+
+        <item
+            android:id="@+id/turismo"
+            android:title="Turismo"/>
+
+    </group>
+
+    <item android:title="">
+        <menu>
+
+            <item
+                android:id="@+id/logout"
+                android:title="Sair"/>
+        </menu>
+    </item>
+
+</menu>
