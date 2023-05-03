@@ -28,6 +28,7 @@ import dmax.dialog.SpotsDialog;
 
 public class MainActivity extends AppCompatActivity {
 
+    //declarando varias para utilizar
     private static final String FILE_NAME =  "myFile";
     private TextInputEditText campoEmail, campoSenha;
     private Button buttonEntrar;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        //Inicializando elas
         campoEmail = findViewById(R.id.editEmail1);
         campoSenha = findViewById(R.id.editSenha1);
         buttonEntrar = findViewById(R.id.btEntrar);
@@ -55,11 +56,10 @@ public class MainActivity extends AppCompatActivity {
         txtesqueciSenha = findViewById(R.id.txtEsqueciSenha);
         checkBox = findViewById(R.id.remember_me_ckhd);
 
-
+        //salvando as informações de login, para não precisar escrever de novo
         SharedPreferences sharedPreferences = getSharedPreferences(FILE_NAME,MODE_PRIVATE);
         String username= sharedPreferences.getString("username","");
         String password =sharedPreferences.getString("password","");
-
         campoEmail.setText(username);
         campoSenha.setText(password);
 
