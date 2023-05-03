@@ -58,16 +58,16 @@ public class MainActivity extends AppCompatActivity {
 
         //salvando as informações de login, para não precisar escrever de novo
         SharedPreferences sharedPreferences = getSharedPreferences(FILE_NAME,MODE_PRIVATE);
-        String username= sharedPreferences.getString("username","");
-        String password =sharedPreferences.getString("password","");
+        String username= sharedPreferences.getString("email","");
+        String password =sharedPreferences.getString("senha","");
         campoEmail.setText(username);
         campoSenha.setText(password);
 
 
-
+        //Instanciando firebase para cadastro e login do usuario
         mAuth= FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-
+        // progressbar antes do usuario logar
         mDialog = new SpotsDialog.Builder().setContext(MainActivity.this).setMessage("Espere Um Momento").build();
         txtesqueciSenha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,13 +96,16 @@ public class MainActivity extends AppCompatActivity {
     private void Login(View v) {
         String textoEmail = campoEmail.getText().toString();
         String textoSenha = campoSenha.getText().toString();
+        //metodo que guarda as informações do usuario
         if (checkBox.isChecked()){
             StoredDataUsingHarePref(textoEmail,textoSenha);
         }
+        //verifica se o usuario é diferente de nulo
         if (textoEmail.isEmpty() || textoSenha.isEmpty()) {
             Snackbar snackbar = Snackbar.make(v, mensagens[0], Snackbar.LENGTH_SHORT);
             snackbar.show();
         }else {
+            //metodo para logar o usuario
             LoginUsuario(v);
         }
 
@@ -110,8 +113,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void StoredDataUsingHarePref(String textoEmail, String textoSenha) {
         SharedPreferences.Editor editor = getSharedPreferences(FILE_NAME,MODE_PRIVATE).edit();
-        editor.putString("username",textoEmail);
-        editor.putString("password",textoSenha);
+        editor.putString("email",textoEmail);
+        editor.putString("senha",textoSenha);
         editor.apply();
 
     }
