@@ -22,7 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import dmax.dialog.SpotsDialog;
 
 public class RedefinirSenhaActivity extends AppCompatActivity {
-
     AlertDialog mDialog;
 
     private TextInputEditText txtEmail;
@@ -33,7 +32,7 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_redefinir_senha);
-        getSupportActionBar().hide();
+        
 
 
         mDialog = new SpotsDialog.Builder().setContext(RedefinirSenhaActivity.this).setMessage("Espere Um Monmento").build();

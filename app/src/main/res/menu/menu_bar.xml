@@ -20,7 +20,7 @@
 
         <item
             android:id="@+id/mAmbiente"
-            android:title="Meio Ambiente"/>
+            android:title="Urbanismo"/>
 
         <item
             android:id="@+id/cultura"

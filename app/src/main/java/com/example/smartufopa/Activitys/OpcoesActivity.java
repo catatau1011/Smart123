@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -29,11 +30,12 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.smartufopa.R;
+import com.example.smartufopa.Urbanismo.UrbanismoActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class OpcoesActivity extends AppCompatActivity {
-    Button btnSeguranca;
+    Button btnSeguranca,btnUrnbanismo;
     FirebaseAuth mAuth;
 
 
@@ -44,10 +46,13 @@ public class OpcoesActivity extends AppCompatActivity {
     Toolbar toolbar;
     NavigationView navigationView;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opcoes);
+
+
 
         toolbar = findViewById(R.id.toolbar);
         drawerLayout= findViewById(R.id.drawerLayout);
@@ -55,7 +60,6 @@ public class OpcoesActivity extends AppCompatActivity {
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(toggle);
-
         toggle.syncState();
 
         toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
@@ -65,27 +69,41 @@ public class OpcoesActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.seguranca:
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        recreate();
+                        AlertDialog.Builder cancelar = new AlertDialog.Builder(OpcoesActivity.this);
+                        cancelar.setTitle("Atenção!");
+                        cancelar.setMessage("Deseja Continuar?");
+                        cancelar.setCancelable(false);
+                        cancelar.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivity(new Intent(OpcoesActivity.this,AcionamentoActivity.class));
+                            }
+                        });
+                        cancelar.setNegativeButton("Não",null);
+                        cancelar.create().show();
                         break;
                     case R.id.saude:
+                        Toast.makeText(OpcoesActivity.this,"Modulo em desenvolvimento",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         recreate();
                         break;
                     case R.id.educacao:
+                        Toast.makeText(OpcoesActivity.this,"Modulo em desenvolvimento",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         recreate();
                         break;
                     case R.id.mAmbiente:
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        recreate();
+                        startActivity(new Intent(OpcoesActivity.this, UrbanismoActivity.class));
+                        finish();
                         break;
 
                     case R.id.cultura:
+                        Toast.makeText(OpcoesActivity.this,"Modulo em desenvolvimento",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         recreate();
                         break;
                     case R.id.turismo:
+                        Toast.makeText(OpcoesActivity.this,"Modulo em desenvolvimento",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         recreate();
                         break;
@@ -103,9 +121,16 @@ public class OpcoesActivity extends AppCompatActivity {
             }
         });
         btnSeguranca = findViewById(R.id.btnSegurança);
+        btnUrnbanismo = findViewById(R.id.btnUrbanismo);
         mAuth= FirebaseAuth.getInstance();
 
-
+        btnUrnbanismo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(OpcoesActivity.this, UrbanismoActivity.class));
+                finish();
+            }
+        });
         btnSeguranca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

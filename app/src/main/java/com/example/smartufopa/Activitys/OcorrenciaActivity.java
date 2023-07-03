@@ -72,6 +72,8 @@ public class OcorrenciaActivity extends AppCompatActivity implements LocationLis
     AutoCompleteTextView autoCompleteTextView, edtMessage;
     private ImageView imageView;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +102,10 @@ public class OcorrenciaActivity extends AppCompatActivity implements LocationLis
         edtMessage = findViewById(R.id.edtMessage);
         //editCeleular = findViewById(R.id.editcelular);
         btEnviar_dados = findViewById(R.id.btEnviar_dados);
+
+
+
+
 
         btEnviar_dados.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.R)
@@ -162,6 +168,9 @@ public class OcorrenciaActivity extends AppCompatActivity implements LocationLis
     @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressLint("MissingPermission")
     private void ocorrencia(View c) throws UnsupportedEncodingException {
+
+
+
         //Telefone
 
         //Data

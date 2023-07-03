@@ -7,6 +7,8 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -27,8 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import dmax.dialog.SpotsDialog;
 
 public class MainActivity extends AppCompatActivity {
-
     //declarando varias para utilizar
+    private final String TAG = this.getClass().getName();
     private static final String FILE_NAME =  "myFile";
     private TextInputEditText campoEmail, campoSenha;
     private Button buttonEntrar;
@@ -166,6 +168,32 @@ public class MainActivity extends AppCompatActivity {
         }catch (Exception e){
 
         }
+    }
+    boolean duplo_click;
+    @Override
+    public void onBackPressed() {
+        Log.d(TAG,"click");
+        if (duplo_click==true){
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
+            System.exit(0);
+        }
+        duplo_click = true;
+        Log.d(TAG,"twice : "+duplo_click);
+
+        Toast.makeText(MainActivity.this,"por favor, pressione novamente para sair",Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                duplo_click = false;
+                Log.d(TAG,"twice : "+duplo_click);
+
+            }
+        },2000);
+        duplo_click= true;
     }
 
 }

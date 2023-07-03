@@ -35,73 +35,62 @@
 
 
         <ImageButton
-            android:id="@+id/btnSeguran"
-            android:layout_width="381dp"
-            android:layout_height="135dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
+            android:id="@+id/btnOcorrencia"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/botao_selecionado_redondo"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/imageButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnSegura" />
-
+            app:layout_constraintBottom_toTopOf="@+id/guideline32"
+            app:layout_constraintEnd_toStartOf="@+id/guideline26"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toTopOf="@+id/guideline31" />
 
         <ImageButton
-            android:id="@+id/btnOcorrencia"
+            android:id="@+id/btnOcorrencia1"
             android:layout_width="81dp"
             android:layout_height="81dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/fundo_botaoimg1"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_ocorrencia"
-            app:layout_constraintBottom_toBottomOf="@+id/btnSeguran"
-            app:layout_constraintStart_toStartOf="@+id/btnSeguran"
-            app:layout_constraintTop_toTopOf="@+id/btnSeguran" />
+            app:layout_constraintBottom_toBottomOf="@+id/btnOcorrencia"
+            app:layout_constraintStart_toStartOf="@+id/btnOcorrencia"
+            app:layout_constraintTop_toTopOf="@+id/btnOcorrencia" />
 
-
-        <ImageButton
-            android:id="@+id/btnSegura"
-            android:layout_width="381dp"
-            android:layout_height="135dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/botao_selecionado_redondo"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/btnSeguran"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView19"
-            app:layout_constraintVertical_chainStyle="packed" />
 
         <ImageButton
             android:id="@+id/btnDenuncia"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/botao_selecionado_redondo"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/guideline34"
+            app:layout_constraintEnd_toStartOf="@+id/guideline26"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toTopOf="@+id/guideline33" />
+
+        <ImageButton
+            android:id="@+id/btnDenuncia1"
             android:layout_width="81dp"
             android:layout_height="81dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/fundo_botaoimg1"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_denuncia"
-            app:layout_constraintBottom_toBottomOf="@+id/btnSegura"
-            app:layout_constraintStart_toStartOf="@+id/btnSegura"
-            app:layout_constraintTop_toTopOf="@+id/btnSegura" />
+            app:layout_constraintBottom_toBottomOf="@+id/btnDenuncia"
+            app:layout_constraintStart_toStartOf="@+id/btnDenuncia"
+            app:layout_constraintTop_toTopOf="@+id/btnDenuncia" />
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="371dp"
-            android:layout_height="170dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/fundo_botaoimg"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnSeguran" />
+            app:layout_constraintBottom_toTopOf="@+id/guideline36"
+            app:layout_constraintEnd_toStartOf="@+id/guideline26"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toTopOf="@+id/guideline35" />
 
         <TextView
             android:id="@+id/textView14"
@@ -138,27 +127,13 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline30"
+            app:layout_constraintEnd_toStartOf="@+id/guideline28"
+            app:layout_constraintStart_toStartOf="@+id/guideline27"
+            app:layout_constraintTop_toTopOf="@+id/guideline29"
             app:srcCompat="@drawable/img" />
-
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:fontFamily="@font/open_sans_light"
-            android:text="Registre"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
         <TextView
             android:id="@+id/textView22"
@@ -168,33 +143,33 @@
             android:text="Denuncia"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/btnSegura"
+            app:layout_constraintEnd_toEndOf="@+id/btnDenuncia"
             app:layout_constraintHorizontal_bias="0.105"
-            app:layout_constraintStart_toEndOf="@+id/btnDenuncia"
-            app:layout_constraintTop_toTopOf="@+id/btnSegura" />
+            app:layout_constraintStart_toEndOf="@+id/btnDenuncia1"
+            app:layout_constraintTop_toTopOf="@+id/btnDenuncia" />
 
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="24dp"
             android:text="Ocorrência"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.097"
-            app:layout_constraintStart_toEndOf="@+id/btnOcorrencia"
-            app:layout_constraintTop_toTopOf="@+id/btnSeguran" />
+            app:layout_constraintHorizontal_bias="0.079"
+            app:layout_constraintStart_toEndOf="@+id/btnOcorrencia1"
+            app:layout_constraintTop_toTopOf="@+id/btnOcorrencia" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="244dp"
             android:layout_height="wrap_content"
-            android:text="Acidentes · Ameaças · Crimes · \nFurtos · Homicídios · Latrocínios · Roubos · Violência · Outros"
-            app:layout_constraintBottom_toBottomOf="@+id/btnSegura"
-            app:layout_constraintEnd_toEndOf="@+id/btnSegura"
+            android:text="A identificação do usuário não será vinculada na Denúnicia oficial"
+            app:layout_constraintBottom_toBottomOf="@+id/btnDenuncia"
+            app:layout_constraintEnd_toEndOf="@+id/btnDenuncia"
             app:layout_constraintHorizontal_bias="0.437"
-            app:layout_constraintStart_toEndOf="@+id/btnDenuncia"
+            app:layout_constraintStart_toEndOf="@+id/btnDenuncia1"
             app:layout_constraintTop_toBottomOf="@+id/textView22"
             app:layout_constraintVertical_bias="0.156" />
 
@@ -202,13 +177,98 @@
             android:id="@+id/textView23"
             android:layout_width="244dp"
             android:layout_height="wrap_content"
-            android:text="Acidentes · Ameaças · Crimes · \nFurtos · Homicídios · Latrocínios · Roubos · Violência · Outros"
-            app:layout_constraintBottom_toBottomOf="@+id/btnSeguran"
-            app:layout_constraintEnd_toEndOf="@+id/btnSeguran"
+            android:layout_marginTop="10dp"
+            android:text="O Usuário será identificado na Ocorrência"
+            app:layout_constraintBottom_toBottomOf="@+id/btnOcorrencia"
+            app:layout_constraintEnd_toEndOf="@+id/btnOcorrencia"
             app:layout_constraintHorizontal_bias="0.437"
-            app:layout_constraintStart_toEndOf="@+id/btnOcorrencia"
+            app:layout_constraintStart_toEndOf="@+id/btnOcorrencia1"
             app:layout_constraintTop_toBottomOf="@+id/textView10"
             app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05109489" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.36" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.11" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.24" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.47" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.98" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.29" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.52" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.76" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

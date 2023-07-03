@@ -17,9 +17,6 @@
             android:layout_height="wrap_content"
             android:background="#46C146"
             android:elevation="3dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:titleTextColor="@color/white">
 
             <ImageView
@@ -37,30 +34,27 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:text="Passo 1:"
             android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/txtInputLayoutocorrdo"
-            app:layout_constraintStart_toStartOf="@+id/txtInputLayoutocorrdo" />
+            tools:layout_editor_absoluteX="36dp"
+            tools:layout_editor_absoluteY="234dp" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:text="Passo 2:"
             android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/autoCompleteDenuncia"
-            app:layout_constraintStart_toStartOf="@+id/autoCompleteDenuncia" />
+            tools:layout_editor_absoluteX="36dp"
+            tools:layout_editor_absoluteY="388dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutocorrdo"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
             android:hint=" Tipo de Ocorrido"
 
             app:boxStrokeColor="@color/verde_claro"
@@ -68,47 +62,49 @@
             app:errorTextColor="@color/red"
             app:hintAnimationEnabled="true"
             app:hintTextColor="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/autoCompleteDenuncia"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:layout_constraintVertical_chainStyle="packed">
+            app:layout_constraintBottom_toTopOf="@+id/guideline50"
+            app:layout_constraintEnd_toStartOf="@+id/guideline52"
+            app:layout_constraintStart_toStartOf="@+id/guideline51"
+            app:layout_constraintTop_toTopOf="@+id/guideline49">
 
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteOcorrido1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autoSizeTextType="uniform"
-                android:background="@drawable/botao_selecionado"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteDenuncia"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayoutoDescricao"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/botao_selecionado"
-            android:hint="Descrição"
-            android:padding="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/btEnviar_dado"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutocorrdo" />
+            app:boxStrokeColor="@color/verde_claro"
+            app:errorEnabled="true"
+            app:errorTextColor="@color/red"
+            app:hintAnimationEnabled="true"
+            app:hintTextColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/guideline61"
+            app:layout_constraintEnd_toStartOf="@+id/guideline52"
+            app:layout_constraintStart_toStartOf="@+id/guideline51"
+            app:layout_constraintTop_toTopOf="@+id/guideline59">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteDenuncia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Descrição"
+                android:padding="20dp"
+                tools:layout_editor_absoluteX="20dp"
+                tools:layout_editor_absoluteY="408dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btEnviar_dado"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="-55dp"
             android:background="@drawable/background_button_selector"
             android:enabled="true"
             android:padding="15dp"
@@ -116,24 +112,111 @@
             android:textAllCaps="false"
             android:textColor="#FFFF"
             android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/autoCompleteDenuncia" />
+            app:layout_constraintBottom_toTopOf="@+id/guideline63"
+            app:layout_constraintEnd_toStartOf="@+id/guideline52"
+            app:layout_constraintStart_toStartOf="@+id/guideline51"
+            app:layout_constraintTop_toTopOf="@+id/guideline62" />
 
         <ImageView
             android:id="@+id/imageView14"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="44dp"
-            app:layout_constraintBottom_toTopOf="@+id/txtInputLayoutocorrdo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:layout_constraintVertical_bias="0.0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline46"
+            app:layout_constraintEnd_toStartOf="@+id/guideline48"
+            app:layout_constraintStart_toStartOf="@+id/guideline47"
+            app:layout_constraintTop_toTopOf="@+id/guideline45"
             app:srcCompat="@drawable/img" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.14" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline59"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.53" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.26" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.47" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.47" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline61"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline63"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.79" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline62"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.72" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.36" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.34" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.92" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline48"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.58" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

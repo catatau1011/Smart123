@@ -31,7 +31,6 @@
                 android:id="@+id/editEmail1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/botao_selecionado"
                 android:drawableEnd="@drawable/ic_email"
                 android:hint="@string/hint_email"
                 android:inputType="textEmailAddress"
@@ -70,7 +69,6 @@
                 android:maxLines="1"
                 android:textSize="18sp"
                 android:padding="15dp"
-                android:background="@drawable/botao_selecionado"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
