@@ -12,8 +12,11 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Rect;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -22,10 +25,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -55,6 +61,7 @@ import com.gun0912.tedpermission.normal.TedPermission;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -66,7 +73,6 @@ import retrofit2.Response;
 
 public class DenunciaActivity extends AppCompatActivity implements LocationListener{
 
-
     ApiInterface apiInterface;
     Button btEnviar_dados;
     LocationManager locationManager;
@@ -75,15 +81,47 @@ public class DenunciaActivity extends AppCompatActivity implements LocationListe
 
     private ImageView imageView;
 
-    //DatabaseReference reference =FirebaseDatabase.getInstance().getReference();
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    String userId = firebaseAuth.getCurrentUser().getUid();
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+    String telefone,endereco;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_denuncia);
-        //getSupportActionBar().setTitle("DENUNCIA");
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child("Usuario").child(userId).exists()) {
+                    // O nó existe para o usuário atual
+                    // Recupere os dados do nó
+                    telefone = dataSnapshot.child("Usuario").child(userId).child("telefone").getValue().toString();
+                    endereco = dataSnapshot.child("Usuario").child(userId).child("endereco").getValue().toString();
+                    metodo1(telefone);
+                    metodo2(endereco);
+
+                    // ...
+                } else {
+                    // O nó não existe para o usuário atual
+                    // Trate o caso adequadamente
+                    System.out.println("Não existe");
+                    // ...
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Trate quaisquer erros que ocorram durante a recuperação dos dados
+                Log.e("Firebase", "Erro ao recuperar dados do Firebase", databaseError.toException());
+            }
+        });
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        //ouvinte();
         imageView= findViewById(R.id.ic_voltar1);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +135,7 @@ public class DenunciaActivity extends AppCompatActivity implements LocationListe
         autoCompleteTextView = findViewById(R.id.autoCompleteOcorrido1);
         autoCompleteTextDenuncia = findViewById(R.id.autoCompleteDenuncia);
 
-        String[] Array = getResources().getStringArray(R.array.itdem_list);
+        String[] Array = getResources().getStringArray(R.array.item_list);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(DenunciaActivity.this, android.R.layout.simple_list_item_1,Array);
 
         autoCompleteTextView.setAdapter(arrayAdapter);
@@ -116,12 +154,18 @@ public class DenunciaActivity extends AppCompatActivity implements LocationListe
         });
 
         apiInterface = APIClient.getClient().create(ApiInterface.class);
+
     }
+
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressLint("MissingPermission")
+
     private void ocorrencia(View c) throws UnsupportedEncodingException {
+
+
         //Data
         @SuppressLint("SimpleDateFormat") SimpleDateFormat formataData = new SimpleDateFormat("dd-MM-yyyy");
         Date data = new Date();
@@ -185,16 +229,15 @@ public class DenunciaActivity extends AppCompatActivity implements LocationListe
                         horaformatada,
                         Ocorrido,
                         "Anônimo",
-                        "",
-                        "",
+                        telefone+"",
+                        endereco+"",
                         userLocation,
                         Descricao);
                 Call<Void> call1 = apiInterface.createUser(user);
                 call1.enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
-                        Log.d("Success", "200");
-                        System.out.println("333333333333333333333333333333333333333");
+                        System.out.println("Sucesso");
                         finish();
                     }
                     @Override
@@ -211,6 +254,15 @@ public class DenunciaActivity extends AppCompatActivity implements LocationListe
             e.printStackTrace();
         }
 
+    }
+
+    private void metodo1(String telefone) {
+        System.out.println("telefone: " + telefone);
+    }
+
+    private void metodo2(String endereco) {
+        System.out.println("endereco: " + endereco);
+        
     }
 
 
@@ -325,4 +377,20 @@ public class DenunciaActivity extends AppCompatActivity implements LocationListe
     public void onProviderDisabled(@NonNull String provider) {
         LocationListener.super.onProviderDisabled(provider);
     }
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if ( v instanceof EditText) {
+                Rect outRect = new Rect();
+                v.getGlobalVisibleRect(outRect);
+                if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
+                    v.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+        }
+        return super.dispatchTouchEvent( event );
+    }
+
 }

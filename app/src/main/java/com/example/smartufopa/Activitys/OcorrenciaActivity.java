@@ -1,7 +1,5 @@
 package com.example.smartufopa.Activitys;
 
-import static com.gun0912.tedpermission.provider.TedPermissionProvider.context;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -11,8 +9,10 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Rect;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -21,7 +21,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -43,6 +45,7 @@ import com.google.android.gms.location.LocationSettingsResponse;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -52,7 +55,6 @@ import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.normal.TedPermission;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -73,11 +75,46 @@ public class OcorrenciaActivity extends AppCompatActivity implements LocationLis
     private ImageView imageView;
 
 
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    String userId = firebaseAuth.getCurrentUser().getUid();
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+    String telefone,endereco;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ocorrencia);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child("Usuario").child(userId).exists()) {
+                    // O nó existe para o usuário atual
+                    // Recupere os dados do nó
+                    telefone = dataSnapshot.child("Usuario").child(userId).child("telefone").getValue().toString();
+                    endereco = dataSnapshot.child("Usuario").child(userId).child("endereco").getValue().toString();
+                    metodo1(telefone);
+                    metodo2(endereco);
+
+                    // ...
+                } else {
+                    // O nó não existe para o usuário atual
+                    // Trate o caso adequadamente
+                    System.out.println("Não existe");
+                    // ...
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Trate quaisquer erros que ocorram durante a recuperação dos dados
+                Log.e("Firebase", "Erro ao recuperar dados do Firebase", databaseError.toException());
+            }
+        });
+
+        firebaseAuth = FirebaseAuth.getInstance();
 
         imageView= findViewById(R.id.ic_voltar);
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -88,12 +125,26 @@ public class OcorrenciaActivity extends AppCompatActivity implements LocationLis
             }
         });
 
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Usuario");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String ma =snapshot.getValue().toString();
+                System.out.println(" O dados são :" + ma);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         minhaLocalizacao();
 
+        // Aqui é lista zoada
         autoCompleteTextView = findViewById(R.id.autoCompleteOcorrido);
         autoCompleteTextView = findViewById(R.id.autoCompleteOcorrido);
-        String[] Array = getResources().getStringArray(R.array.itdem_list);
+        String[] Array = getResources().getStringArray(R.array.item_list);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(OcorrenciaActivity.this, android.R.layout.simple_list_item_1, Array);
         autoCompleteTextView.setAdapter(arrayAdapter);
 
@@ -101,7 +152,7 @@ public class OcorrenciaActivity extends AppCompatActivity implements LocationLis
         autoCompleteTextView = findViewById(R.id.autoCompleteOcorrido);
         edtMessage = findViewById(R.id.edtMessage);
         //editCeleular = findViewById(R.id.editcelular);
-        btEnviar_dados = findViewById(R.id.btEnviar_dados);
+        btEnviar_dados = findViewById(R.id.btEnviar_dado);
 
 
 
@@ -121,6 +172,14 @@ public class OcorrenciaActivity extends AppCompatActivity implements LocationLis
         });
         //Instancia para api
         apiInterface = APIClient.getClient().create(ApiInterface.class);
+    }
+
+    private void metodo1(String telefone) {
+        System.out.println("telefone: " + telefone);
+    }
+    private void metodo2(String endereco) {
+        System.out.println("endereco: " + endereco);
+
     }
 
 
@@ -168,8 +227,6 @@ public class OcorrenciaActivity extends AppCompatActivity implements LocationLis
     @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressLint("MissingPermission")
     private void ocorrencia(View c) throws UnsupportedEncodingException {
-
-
 
         //Telefone
 
@@ -233,8 +290,8 @@ public class OcorrenciaActivity extends AppCompatActivity implements LocationLis
                         horaformatada,
                         Ocorrido,
                         Nome,
-                        "",
-                        "",
+                        telefone,
+                        endereco,
                         userLocation,
                         Descricao);
                 Call<Void> call1 = apiInterface.createUser(dados_da_denuncia);
@@ -343,4 +400,20 @@ public class OcorrenciaActivity extends AppCompatActivity implements LocationLis
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if ( v instanceof EditText) {
+                Rect outRect = new Rect();
+                v.getGlobalVisibleRect(outRect);
+                if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
+                    v.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+        }
+        return super.dispatchTouchEvent( event );
+    }
+
 }

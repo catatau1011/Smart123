@@ -20,7 +20,7 @@ public class AcionamentoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_acionamento);
 
 
-        imageView= findViewById(R.id.ic_voltar2);
+        imageView= findViewById(R.id.ic_voltar233);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

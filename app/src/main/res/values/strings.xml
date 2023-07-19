@@ -13,7 +13,7 @@
     <string name="open">open</string>
     <string name="close">close</string>
 
-    <string-array name="itdem_list">
+    <string-array name="item_list">
         <item>Acidente de Trânsito sem vítimas</item>
         <item>Acidente de Trânsito com vítimas</item>
         <item>Ameaça</item>
@@ -34,6 +34,15 @@
         <item>Homicidio</item>
         <item>Violência domestica</item>
         <item>Violencia contra animais</item>
+        <item>outro</item>
+    </string-array>
+
+
+    <string-array name="item_list2">
+        <item>Buraco na estrada</item>
+        <item>Banco da praça quebrado</item>
+        <item>Lampada quebrada</item>
+        <item>Incendio</item>
         <item>outro</item>
     </string-array>
 
