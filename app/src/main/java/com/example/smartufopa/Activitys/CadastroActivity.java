@@ -117,12 +117,11 @@ public class CadastroActivity extends AppCompatActivity {
             if(senha.equals(Corfirmasenha)){
                 Snackbar snackbar = Snackbar.make(v,mensagens[1],Snackbar.LENGTH_SHORT);
                 snackbar.show();
+                mDialog.show();
                 mAuth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        mDialog.hide();
                         if (task.isSuccessful()) {
-                            mDialog.show();
                             Snackbar snackbar = Snackbar.make(v,mensagens[1],Snackbar.LENGTH_SHORT);
                             snackbar.show();
                             String id = mAuth.getCurrentUser().getUid();
@@ -143,6 +142,7 @@ public class CadastroActivity extends AppCompatActivity {
                             Snackbar snackbar = Snackbar.make(v,erro,Snackbar.LENGTH_SHORT);
                             snackbar.show();
                         }
+                        mDialog.dismiss();
                     }
                 });
             }else{
@@ -168,8 +168,8 @@ public class CadastroActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()){
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        Snackbar snackbar = Snackbar.make(v, mensagens[1], Snackbar.LENGTH_SHORT);
-                        snackbar.show();
+                        //Snackbar snackbar = Snackbar.make(v, mensagens[1], Snackbar.LENGTH_SHORT);
+                        //snackbar.show();
                     }else {
                         Snackbar snackbar = Snackbar.make(v, mensagens[2], Snackbar.LENGTH_SHORT);
                         snackbar.show();

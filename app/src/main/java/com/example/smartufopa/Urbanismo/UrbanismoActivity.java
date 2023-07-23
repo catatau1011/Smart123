@@ -17,6 +17,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -104,6 +106,7 @@ public class UrbanismoActivity extends AppCompatActivity implements LocationList
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
                 galleryIntent.setType("image/*");
                 startActivityForResult(galleryIntent,2);
+
             }
         });
 
@@ -142,6 +145,7 @@ public class UrbanismoActivity extends AppCompatActivity implements LocationList
         btEnviar_dados = findViewById(R.id.btEnviar_dados);
 
 
+
         btEnviar_dados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -155,13 +159,17 @@ public class UrbanismoActivity extends AppCompatActivity implements LocationList
             }
         });
 
+
     }
+
+
+
 
 
 
    private void uploadToFirebase(Uri uri) {
     StorageReference fileRef = firebaseStorage.getReference().child("Images")
-            .child(System.currentTimeMillis()+"");
+        .child(System.currentTimeMillis()+"");
     fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
         @Override
         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -175,7 +183,8 @@ public class UrbanismoActivity extends AppCompatActivity implements LocationList
                             .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
-                                    Toast.makeText(getApplicationContext(),"Suecesso",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(),"Sucesso",Toast.LENGTH_SHORT).show();
+
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -187,6 +196,7 @@ public class UrbanismoActivity extends AppCompatActivity implements LocationList
 
                     progressBar.setVisibility(View.INVISIBLE);
                     Toast.makeText(getApplicationContext(),"Foto salva com sucesso",Toast.LENGTH_SHORT).show();
+
 
 
                 }
@@ -355,6 +365,7 @@ public class UrbanismoActivity extends AppCompatActivity implements LocationList
             imageUri = data.getData();
             imageView13.setImageURI(imageUri);
 
+
         }
     }
 
@@ -374,13 +385,5 @@ public class UrbanismoActivity extends AppCompatActivity implements LocationList
         }
         return super.dispatchTouchEvent( event );
     }
-    /*
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        if (getCurrentFocus() != null) {
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-        }
-        return super.dispatchTouchEvent(ev);
-    }*/
+
 }

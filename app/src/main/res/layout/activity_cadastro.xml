@@ -236,8 +236,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutSenha"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
             app:boxStrokeColor="@color/verde_claro"
             app:errorEnabled="true"
             app:errorTextColor="@color/red"
@@ -251,7 +251,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editSenha"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_senha"
                 android:inputType="numberPassword"
@@ -263,7 +263,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInputLayoutConfirmarsenha"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
             app:boxStrokeColor="@color/verde_claro"
             app:errorEnabled="true"
@@ -278,7 +278,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editConfirmarSenha"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:hint="Confirmar Senha"
                 android:inputType="numberPassword"

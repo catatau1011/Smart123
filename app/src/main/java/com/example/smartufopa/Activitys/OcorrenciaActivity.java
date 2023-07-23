@@ -354,7 +354,8 @@ public class OcorrenciaActivity extends AppCompatActivity implements LocationLis
             sendIntent.putExtra(Intent.EXTRA_TEXT, whatsAppMessage);
             sendIntent.setType("text/plain");
             sendIntent.setPackage("com.whatsapp");
-            startActivity(sendIntent);
+            //Eu ocultei aqui achando que essa era a solução.
+            //startActivity(sendIntent);
             // Toast.makeText(this,""+location.getLatitude()+","+location.getLongitude(),Toast.LENGTH_SHORT).show();
         }catch (Exception e){
             e.printStackTrace();
